@@ -1,0 +1,14 @@
+{
+    "scripts": {
+        "postinstall": "concurrently \"pnpm run install:frontend\" \"pnpm run install:backend\"",
+        "install:frontend": "cd frontend && pnpm i",
+        "install:backend": "cd backend && pnpm i",
+        "start:frontend": "cd frontend && pnpm run dev",
+        "start:backend": "cd backend && pnpm run dev",
+        "start": "concurrently \"pnpm run start:frontend\" \"pnpm run start:backend\""
+    },
+	"devDependencies": {
+		"concurrently": "^8.2.2",
+		"pnpm": "^9.2.0"
+	}
+}
