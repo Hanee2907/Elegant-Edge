@@ -9,13 +9,14 @@
     margin: 20px auto; /* Space around the component and center alignment */
     max-width: 100%; /* Maximum width for larger screens */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+    margin-top: 310px;
 }
 
 /* Title styling */
 .popular h1 {
     font-size: 2rem;
     color: #333; /* Dark grey text */
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 /* Horizontal rule (line) styling */
@@ -32,7 +33,7 @@
     flex-wrap: wrap; /* Wrap items to new lines */
     gap: 35px; /* Space between items */
     justify-content: center; /* Center items */
-    margin-top: 150px;
+    margin-top: 10px;
 }
 
 /* Individual item styling */
