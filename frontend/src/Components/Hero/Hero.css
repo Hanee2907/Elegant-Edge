@@ -1,64 +1,74 @@
 .hero {
-  height: 100vh;
-  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
-  display: flex;
-  position: relative;
-}
-
-.hero-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px; /* Increase the gap */
-  padding-left: 100px;
-  padding-right: 50px; /* Add right padding */
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.hero-left p {
-  color: #171717;
-  font-size: 40px;
-  font-weight: 700;
-  margin: 0; /* Remove default margin */
-}
-
-.hero-left .hero-new {
-  margin-bottom: 20px; /* Adjust margin */
-}
-
-.hero-latest-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  width: 250px;
-  height: 60px;
-  border-radius: 30px;
-  margin-top: 20px;
-  background: #ff4141;
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.hero-right {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: auto;
-  z-index: 1;
-}
-
-.hero-right img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
+    height: 100vh;
+    background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2rem;
+  }
+  
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .hero-left p {
+    color: #171717;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .hero-latest-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 250px;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: 20px;
+    background: #ff4141;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .hero-right img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  @media (min-width: 768px) {
+    .hero {
+      flex-direction: row;
+      padding: 4rem;
+    }
+  
+    .hero-left {
+      align-items: flex-start;
+      text-align: left;
+      padding-left: 100px;
+      padding-right: 50px;
+    }
+  
+    .hero-left p {
+      font-size: 3rem;
+    }
+  
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  

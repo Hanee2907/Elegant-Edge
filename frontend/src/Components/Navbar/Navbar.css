@@ -1,73 +1,72 @@
 /* Navbar */
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
   
-}
-
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-}
-
-.nav-logo img {
-  height: 150px; 
-  margin-right: 0px;
-}
-
-.nav-logo p {
-  font-size: 1.5rem; 
-  font-weight: bold;
-  color: #333; 
-  margin: 0; 
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none; 
-  padding: 0;
-  margin: 0;
-}
-
-.nav-menu li {
-  margin: 0 15px; 
-  font-size: 1.5rem; 
-  color: #000000; 
-  cursor: pointer;
-  font-family: Arial, Helvetica, sans-serif
-}
-
-.nav-menu li:hover {
-  color: #ff0000;
-}
-
-.nav-login-cart {
-  display: flex;
-  align-items: center;
-}
-
-.nav-login-cart button {
-  padding: 0.5rem 1rem; 
-  margin-right: 15px; 
-  background-color: #ff0000; 
-  border: none; 
-  border-radius: 4px; 
-  color: #fff; 
-  font-size: 1rem; 
-  cursor: pointer; 
-}
-
-.nav-login-cart button:hover {
-  background-color: #b30600; 
-}
-
-.nav-login-cart img {
-  height: 30px; 
-  cursor: pointer; 
-}
+  .nav-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-logo img {
+    height: 100px; /* Adjust logo height as needed */
+    margin-right: 10px;
+  }
+  
+  .nav-logo p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-menu li {
+    margin: 0 15px;
+    font-size: 1.2rem; /* Adjust menu item font size */
+    color: #000000;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .nav-menu li:hover {
+    color: #ff0000;
+  }
+  
+  .nav-login-cart {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-login-cart button {
+    padding: 0.5rem 1rem;
+    margin-right: 15px;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .nav-login-cart button:hover {
+    background-color: #b30600;
+  }
+  
+  .nav-login-cart img {
+    height: 30px;
+    cursor: pointer;
+  }
+  
