@@ -1,10 +1,10 @@
 import React from 'react';
-import Product from './Product'; 
-import { products } from './products'; 
+import Product from './Product'; // Adjust import path as per your structure
+import { products } from './products'; // Adjust import path to match your structure
 import './ShopCategory.css';
 
 const ShopCategory = ({ category }) => {
-  const categoryProducts = products[category] || []; 
+  const categoryProducts = products[category] || []; // Ensure categoryProducts is defined
   console.log(category,categoryProducts)
   return (
     <div className="shop-category">

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './CSS/LoginSignup.css';
+import { useHistory } from 'react-router-dom';
+import './LoginSignup.css'; // Import combined CSS styles
 
 const LoginSignup = () => {
-    const navigate = useNavigate(); // useNavigate instead of useHistory
+    const history = useHistory();
     const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup
 
     const handleToggleForm = () => {
@@ -13,13 +13,13 @@ const LoginSignup = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         // Handle login logic
-        navigate('/'); // Redirect to home page after login
+        history.push('/'); // Redirect to home page after login
     };
 
     const handleSignup = (e) => {
         e.preventDefault();
         // Handle signup logic
-        navigate('/'); // Redirect to home page after signup
+        history.push('/'); // Redirect to home page after signup
     };
 
     return (
@@ -36,7 +36,7 @@ const LoginSignup = () => {
                 </form>
                 <div className="form-toggle">
                     <span onClick={handleToggleForm}>
-                        {isLogin ? 'Dont have an account? SignUp' : 'Already have an account? Login'}
+                        {isLogin ? 'Create an account' : 'Already have an account? Login'}
                     </span>
                 </div>
             </div>
