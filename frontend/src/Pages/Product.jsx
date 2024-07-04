@@ -1,15 +1,19 @@
-import React from 'react'
+import React from 'react';
+import './ShopCategory.css';
 
-const Product = () => {
+const Product = ({ productId, name,image, price, addToCart }) => {
+  const handleAddToCart = () => {
+    addToCart({ id: productId, name, price });
+  };
+
   return (
     <div className="product">
-      
-      <img src={image} alt={name} />
       <h3>{name}</h3>
       <p>${price.toFixed(2)}</p>
-      <button onClick={handleAddToCart}>View Details</button>
+      <img src={image} alt={name} />
+      <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;
