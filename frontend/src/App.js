@@ -5,8 +5,9 @@ import Footer from './Components/Footer/Footer';
 import Product from './Pages/Product';
 import Cart from './Pages/Cart';
 import Shop from './Pages/Shop';
+import ProductDetails from './Components/ProductDetails/ProductDetails';
 import ShopCategory from './Pages/ShopCategory';
-import Signup from './Pages/Signup'; // Import Signup component
+
 
 import LoginSignup from './Pages/LoginSignup'; // Ensure this is not duplicated
 
@@ -28,8 +29,9 @@ function App() {
         <Route path='/kids' element={<ShopCategory category="kids" />} />
         <Route path='/product' element={<Product addToCart={addToCart} />} />
         <Route path='/product/:productId' element={<Product addToCart={addToCart} />} />
+        <Route path="/category/:category/product/:productId" element={<ProductDetails />} />
         <Route path='/cart' element={<Cart cartItems={cartItems} />} />
-        <Route path='/signup' element={<Signup />} /> {/* Route for Signup */}
+        <Route path='/login' element={<LoginSignup />} /> {/* Route for Signup */}
       </Routes>
       <Footer />
     </div>

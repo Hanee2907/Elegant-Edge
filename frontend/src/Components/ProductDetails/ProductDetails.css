@@ -1,0 +1,231 @@
+/* General container for product details */
+.product-details {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centering the container horizontally */
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 40px;
+  }
+  
+  /* Styles for the left side of the product details */
+  .product-detail-left {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-basis: 60%;
+  }
+  
+  /* Styles for the list of images */
+  .image-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .image-list img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .image-list img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Styles for the main display image */
+  .display-img {
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 40%; /* Adjust the width of the display-img */
+  }
+  
+  .display-img .main-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Styles for the right side of the product details */
+  .product-details-right {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start; /* Aligning items to start on the cross axis (left) */
+    justify-content: center; /* Aligning items to center on the main axis */
+  }
+  
+  /* Product name styling */
+  .product-details-right h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* Styles for the rating */
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .rating img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .rating p {
+    margin: 0;
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Styles for the prices */
+  .prices {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .old-price {
+    font-size: 1.2rem;
+    color: #999;
+    text-decoration: line-through;
+  }
+  
+  .new-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff0000;
+  }
+  
+  /* Description styling */
+  .description {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Styles for the size selector */
+  .size {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .size h1 {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .measure {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .measure div {
+    padding: 10px 20px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .measure div:hover {
+    background-color: #d4d8dd;
+  }
+  
+  /* Add to cart button styling */
+  .product-details-right button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-details-right button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Category and tags styling */
+  .category {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .category span {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Responsive styles */
+  
+  /* For tablets */
+  @media (max-width: 1024px) {
+    .product-details {
+      flex-direction: column;
+      align-items: center; /* Centering horizontally for tablets */
+    }
+  
+    .product-detail-left,
+    .product-details-right {
+      flex-basis: 100%;
+    }
+  
+    .image-list {
+      flex-direction: row;
+      justify-content: center;
+    }
+  
+    .image-list img {
+      width: 60px;
+    }
+  
+    .display-img .main-img {
+      max-width: 300px;
+    }
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 768px) {
+    .product-details {
+      padding: 10px;
+    }
+  
+    .product-details-right h1 {
+      font-size: 1.5rem;
+    }
+  
+    .prices .old-price,
+    .prices .new-price {
+      font-size: 1.2rem;
+    }
+  
+    .product-details-right button {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .image-list {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    .image-list img {
+      width: 50px;
+    }
+  
+    .display-img .main-img {
+      max-width: 250px;
+    }
+  }
+  

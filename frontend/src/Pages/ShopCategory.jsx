@@ -1,11 +1,10 @@
 import React from 'react';
-import Product from './Product'; // Adjust import path as per your structure
-import { products } from './products'; // Adjust import path to match your structure
+import Product from './Product'; 
+import { products } from './products'; 
 import './ShopCategory.css';
 
 const ShopCategory = ({ category }) => {
-  const categoryProducts = products[category] || []; // Ensure categoryProducts is defined
-  console.log(category,categoryProducts)
+  const categoryProducts = products[category] || []; 
   return (
     <div className="shop-category">
       <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
@@ -14,10 +13,10 @@ const ShopCategory = ({ category }) => {
           <Product
             key={product.id}
             productId={product.id}
+            category={category}
             name={product.name}
             image={product.image}
             price={product.price}
-            addToCart={(product) => console.log('Add to cart:', product)}
           />
         ))}
       </div>

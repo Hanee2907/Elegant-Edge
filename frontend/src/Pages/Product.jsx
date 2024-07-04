@@ -1,17 +1,20 @@
-import React from 'react';
-import './ShopCategory.css';
 
-const Product = ({ productId, name,image, price, addToCart }) => {
-  const handleAddToCart = () => {
-    addToCart({ id: productId, name, price });
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './ShopCategory';
+
+const Product = ({ productId, category, name, image, price }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/category/${category}/product/${productId}`);
   };
 
   return (
-    <div className="product">
-      <h3>{name}</h3>
-      <p>${price.toFixed(2)}</p>
+    <div className="product" onClick={handleClick}>
       <img src={image} alt={name} />
-      <button onClick={handleAddToCart}>Add to Cart</button>
+      <h3>{name}</h3>
+      <p>Price: ${price}</p>
     </div>
   );
 };
