@@ -1,13 +1,15 @@
+// ProductDetails.jsx
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { products } from '../../Pages/products';
+import { products } from '../../Components/Images/products';
 import './ProductDetails.css';
 import star1 from '../Images/star1.png';
 import star2 from '../Images/star2.png';
 
 const ProductDetails = () => {
-  const { category, productId } = useParams(); // Get category and productId from URL
-  const product = products[category].find(p => p.id === parseInt(productId));
+  const { category, productId } = useParams();
+  const product = products[category]?.find(p => p.id === parseInt(productId));
 
   if (!product) {
     return <div>Product not found</div>;
@@ -50,7 +52,7 @@ const ProductDetails = () => {
           </div>
         </div>
         <button>ADD TO CART</button>
-        <p className='category'><span>Category :</span> Mens, jeans</p>
+        <p className='category'><span>Category :</span> {category}</p>
         <p className='category'><span>Tags :</span> Mens, jeans, Black Scratch</p>
       </div>
     </div>
