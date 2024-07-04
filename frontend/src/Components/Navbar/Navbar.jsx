@@ -6,12 +6,20 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menu, setMenu] = useState("shop");
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
         <div className='navbar'>
             <div className='nav-logo'>
                 <img src={logo} alt="Logo" />
                 <p>Elegant Edge</p>
+                <div className='hamburger' onClick={toggleMenu}>
+                    ☰
+                </div>
             </div>
             
             <ul className='nav-menu'>
