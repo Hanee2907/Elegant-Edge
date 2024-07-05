@@ -39,17 +39,27 @@ const ListProduct = () => {
         <p>Remove</p>
       </div>
       <div className='listing-allProducts'>
-        <hr />
         {allProducts.map((product, index) => (
-          <div key={index} className='listproduct-format-main listproduct-format'>
-            <img src={product.image} alt="" className='listproduct-product-icon' />
-            <p>{product.name}</p>
-            <p>${product.old_price}</p>
-            <p>${product.new_price}</p>
-            <p>{product.category}</p>
-            <img onClick={() => removeProduct(product.id)} className='listproduct-remove-icon' src={remove} alt="" />
-            <hr />
-          </div>
+          <React.Fragment key={index}>
+            <div className='listproduct-item'>
+              <img src={product.image} alt="" className='listproduct-product-icon' />
+            </div>
+            <div className='listproduct-item'>
+              <p>{product.name}</p>
+            </div>
+            <div className='listproduct-item'>
+              <p>${product.old_price}</p>
+            </div>
+            <div className='listproduct-item'>
+              <p>${product.new_price}</p>
+            </div>
+            <div className='listproduct-item'>
+              <p>{product.category}</p>
+            </div>
+            <div className='listproduct-item'>
+              <img onClick={() => removeProduct(product.id)} className='listproduct-remove-icon' src={remove} alt="" />
+            </div>
+          </React.Fragment>
         ))}
       </div>
     </div>
