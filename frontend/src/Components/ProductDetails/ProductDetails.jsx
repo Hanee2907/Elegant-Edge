@@ -1,62 +1,69 @@
-// ProductDetails.jsx
+import React, { useContext } from 'react'
+import './ProductDetails.css'
+import star1 from "../Images/star1.png"
+import star2 from "../Images/star2.png";
+import { ShopContext } from '../../Context/ShopContext';
 
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { products } from '../../Components/Images/products';
-import './ProductDetails.css';
-import star1 from '../Images/star1.png';
-import star2 from '../Images/star2.png';
 
-const ProductDetails = () => {
-  const { category, productId } = useParams();
-  const product = products[category]?.find(p => p.id === parseInt(productId));
-
-  if (!product) {
-    return <div>Product not found</div>;
-  }
-
+const ProductDetails = (props) => {
+    const {product}=props;
+    const {addToCart}=useContext(ShopContext);
   return (
-    <div className="product-details">
-      <div className='product-detail-left'>
-        <div className='image-list'>
-          <img src={product.image} alt='img1'/>
-          <img src={product.image}  alt='img2'/>
-          <img src={product.image}  alt='img3'/>
-        </div>
-        <div className='display-img'>
-          <img className='main-img' src={product.image} alt={product.name}/>
-        </div>
-      </div>
-      <div className='product-details-right'>
-        <h1>{product.name}</h1>
-        <div className='rating'>
-          <img src={star1} alt=''/>
-          <img src={star1} alt=''/>
-          <img src={star1} alt=''/>
-          <img src={star1} alt=''/>
-          <img src={star2} alt=''/>
-          <p>(222)</p>
-        </div>
-        <div className='prices'>
-          <div className='old-price'>${product.Oldprice}</div>
-          <div className='new-price'>${product.price}</div>
-        </div>
-        <div className='description'>{product.desc}</div>
-        <div className='size'>
-          <h1>Select Size</h1>
-          <div className='measure'>
-            <div>S</div>
-            <div>M</div>
-            <div>L</div>
-            <div>XL</div>
-          </div>
-        </div>
-        <button>ADD TO CART</button>
-        <p className='category'><span>Category :</span> {category}</p>
-        <p className='category'><span>Tags :</span> Mens, jeans, Black Scratch</p>
-      </div>
-    </div>
-  );
-};
+    < div className='productdisplay'>
+        <div className='productdisplay-left'>
+            <div className='productdisplay-img-list'>
+                <img src={product.image} alt=''/>
+                <img src={product.image} alt=''/>
+                <img src={product.image} alt=''/>
+                <img src={product.image} alt=''/>
+            </div>
 
-export default ProductDetails;
+            <div className='productdisplay-img'>
+                <img className='productdisplay-main-img' src={product.image}/>
+            </div>
+
+        </div>
+
+        <div className='productdisplay-right'>
+            <h1>{product.name}</h1>
+      
+
+        <div className='productdisplay-right-star'>
+            <img src={star1} alt=''/>
+            <img src={star1} alt=''/>
+            <img src={star1} alt=''/>
+            <img src={star1} alt=''/>
+            <img src={star2} alt=''/>
+            <p>(122)</p>
+           
+        </div>
+
+        <div className='productdisplay-right-prices'>
+            <div className='productdisplay-right-price-old'>${product.old_price}</div>
+            <div className='productdisplay-right-price-new'>${product.new_price}</div>
+        </div>
+        <div className='productdisplay-right-description'>
+
+        </div>
+        <div className='productdisplay-right-size'>
+            <h1>select size</h1>
+            <div className='productdisplay-right-sizes'>
+                <div>S</div>
+                <div>M</div>
+                <div>L</div>
+                <div>XL</div>
+            </div>
+        
+        <button onClick={()=>{addToCart(product.id)}}>Add to Cart</button>
+        <p className='productdisplay-right-category'><span>Category:</span>Women,Tshirt</p>
+        <p className='productdisplay-right-category'><span>Category:</span>Modern,Tshirt</p>
+
+        </div>
+              
+        </div>
+      
+    </div>
+  )
+}
+
+export default ProductDetails

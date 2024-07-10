@@ -1,24 +1,25 @@
-import React from "react";
-import './Item.css';
+import React from 'react'
+import './Item.css'
+import { Link } from 'react-router-dom'
 
-const Item = ({ id, name, image, oldPrice, newPrice, onClick }) => {
-  const handleClick = () => {
-    // Call onClick function passed from parent component (e.g., ShopCategory)
-    if (onClick) {
-      onClick(id); // Pass the id of the item to identify which item was clicked
-    }
-  };
-
+const Item = (props) => {
   return (
-    <div className="item" onClick={handleClick}>
-      <img src={image} alt={name} />
-      <div>
-        <h3>{name}</h3>
-        <p>Old Price: ${oldPrice}</p>
-        <p>New Price: ${newPrice}</p>
-      </div>
-    </div>
-  );
-};
+    <div className='item'>
+        <Link to={`/product/${props.id}`}><img src={props.image} alt=""/></Link>
+        <p>{props.name}</p>
+        <div className='item-prices'>
+            <div className='item-price-new'>
+                ${props.new_price}
 
-export default Item;
+            </div>
+            <div className='item-price-old'>
+                ${props.old_price}
+            </div>
+
+        </div>
+      
+    </div>
+  )
+}
+
+export default Item
