@@ -1,11 +1,9 @@
 import React from 'react'
 import Hero from '../Components/Hero/Hero'
-
+import Popular from '../Components/Popular/Popular'
 import Advertise from '../Components/Advertise/Advertise'
 
-import Popular from '../Components/Popular/Popular'
-
-const Shop = () => {
+const shop = () => {
   return (
     <div>
       <Hero/>
@@ -16,4 +14,6 @@ const Shop = () => {
   )
 }
 
-export default Shop
+export default shop
+
+
