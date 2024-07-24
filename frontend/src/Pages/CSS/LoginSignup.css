@@ -18,11 +18,11 @@
 .loginsignup-fields{
     display: flex;
     flex-direction: column;
-    gap:29px;
+    gap:15px;
     margin-top: 30px;
 }
 .loginsignup-fields input{
-    height:72px;
+    height:60px;
     width:100%;
     padding-left: 20px;
     border:1px solid #c9c9c9;
@@ -32,7 +32,11 @@
 
 
 }
+input[type="checkbox"]{
+    width: 20px;
+}
 .loginsignup-container button{
+    cursor: pointer;
     width:580px;
     height:72px;
     color:white;
@@ -41,7 +45,6 @@
     border:none;
     font-size:24px;
     font-weight: 500;
-    cursor:pointer;
 }
 .loginsignup-login{
     margin-top: 20px;
@@ -61,5 +64,10 @@
     color:#5c5c5c;
     font-size: 18px;
     font-weight: 500;
+
+}
+.loginsignup-container button:disabled {
+    cursor:not-allowed;
+    background: #a08b8b;
 
 }
