@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './CSS/LoginSignup.css';
 
 const LoginSignup = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
+  const [isSignUp, setIsSignUp] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -27,13 +27,17 @@ const LoginSignup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isChecked) {
+      const action = isSignUp ? 'signup' : 'login';
+      const payload = { formData, action };
+  
       try {
         const response = await fetch('http://localhost:4000/auth', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(payload),
+          credentials: 'include',
         });
         const data = await response.json();
         console.log(data);
@@ -55,7 +59,6 @@ const LoginSignup = () => {
           <input type='password' name="password" placeholder='Password' value={formData.password} onChange={handleChange} />
           {isSignUp && <input type='text' name="phone" placeholder='Phone Number' value={formData.phone} onChange={handleChange} />}
           {isSignUp && <input type='text' name="address" placeholder='Address' value={formData.address} onChange={handleChange} />}
-
           <div className='loginsignup-agree'>
             <input type='checkbox' onChange={handleCheckboxChange} />
             <p>By continuing, I agree to the terms of use & privacy policy.</p>

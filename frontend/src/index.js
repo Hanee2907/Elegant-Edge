@@ -5,12 +5,12 @@ import { BrowserRouter } from 'react-router-dom'; // Ensure this is imported
 import App from './App'; // Your main App component
 import reportWebVitals from './reportWebVitals';
 import './index.css'; // Your global styles
-import ShopContextProvider, { ShopContext } from './Context/ShopContext';
+import ShopContextProvider from './Context/ShopContext'; // Import only the provider
 
 ReactDOM.render(
   <BrowserRouter>
     <ShopContextProvider>
-    <App />
+      <App />
     </ShopContextProvider>
   </BrowserRouter>,
   document.getElementById('root')
