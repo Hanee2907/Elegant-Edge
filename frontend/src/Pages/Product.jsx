@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import './c.css';
+import './c.css';
 
 const Product = ({ productId, category, name, image, price }) => {
   const navigate = useNavigate();
@@ -11,12 +11,11 @@ const Product = ({ productId, category, name, image, price }) => {
   };
 
   return (
-    <div className="product" onClick={handleClick}>
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
-      <p>Price: ${price}</p>
+    <div>
+      <Breadcrum product={product}/>
+      <ProductDetails product={product}/>
     </div>
-  );
-};
+  )
+}
 
-export default Product;
+export default Product
