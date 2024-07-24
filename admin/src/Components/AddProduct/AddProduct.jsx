@@ -1,103 +1,87 @@
-import React, { useState } from 'react'
-import './AddProduct.css'
-import upload_area from '../../assets/upload.png'
+import React, { useState } from 'react';
+import './CSS/LoginSignup.css';
 
-const AddProduct = () => {
+const LoginSignup = () => {
+  const [isSignUp, SetIsSignUp] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-const [image,setImage]=useState(false);
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
 
-const [productDetails,setProductDetails]=useState({
-    name:"",
-    image:"",
-    category:"women",
-    new_price:"",
-    old_price:""
-
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userData = {
+      name: isSignUp ? name : undefined,
+      email,
+      password
+    };
     
-});
-
-const imageHandler=(e)=>{
-    setImage(e.target.files[0]);
-
-}
-const changeHandler=(e)=>{
-    setProductDetails({...productDetails,[e.target.name]:e.target.value});
-};
-
-const Add_Product= async () =>{
-
-    console.log(productDetails);
-    let responseData;
-    let product={ ...productDetails };
-
-    let formData=new FormData();
-    formData.append('product',image);
-
-    await fetch('http://localhost:4000/upload',{
-        method:'POST',
-        headers:{
-            Accept:'application/json',
-           
+    try {
+      const response = await fetch('http://localhost:4000/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        body:formData,
-    }).then((resp)=>resp.json()).then((data)=>{responseData=data});
+        body: JSON.stringify(userData),
+      });
 
-    if(responseData.success){
-        product.image=responseData.image_url;
-        console.log(product);
-        await fetch('http://localhost:4000/addproduct',{
-            method:'POST',
-            headers:{
-                Accept:'application/json',
-                'Content-Type':'application/json',
-            },
-            body:JSON.stringify(product),
-        }).then((resp)=>resp.json()).then((data)=>{
-            data.success?alert("Product added"):alert("failed")
-        })
-
+      if (response.ok) {
+        // Handle successful response
+        console.log('User data submitted successfully');
+      } else {
+        // Handle error response
+        console.error('Failed to submit user data');
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
-
-}
+  };
 
   return (
-    <div className='add-product'>
-        <div className='addproduct-itemfield'>
-            <p>Product title</p>
-            <input value={productDetails.name} onChange={changeHandler} type="text" name="name" placeholder="Type here"/>
-        </div>
-        <div className='addproduct-itemfield'>
-            <p>Price</p>
-            <input value={productDetails.old_price} onChange={changeHandler} type="text" name="old_price" placeholder="type here"/>
-            <p>Offer price</p>
-            <input value={productDetails.new_price} onChange={changeHandler} type="text" name="new_price" placeholder="type here"/>
-        
-
-
-        </div>
-        <div className='addproduct-itemfield'>
-            <p>category</p>
-            <select value={productDetails.category} onChange={changeHandler} name="category" className='add-product-selector'>
-                <option value="men">Men</option>
-                <option value="women">Women</option>
-                <option value="kids">Kid</option>
-              
-            </select>
-        </div>
-        <div className='addproduct-itemfield'>
-            <label htmlFor="file-input">
-                <img id='upload-image' src={image?URL.createObjectURL(image):upload_area} className='addproduct-thumnail-img'/>
-                </label>
-
-                <input onChange={imageHandler} type="file" name="image" id='file-input' hidden/>
-        </div>
-                <button onClick={()=>{Add_Product()}} className='addproduct-btn'>ADD</button>
-
-     
-      
+    <div className='loginsignup'>
+      <div className='loginsignup-container'>
+        <h1>{isSignUp ? 'Sign Up' : 'Login'}</h1>
+        <form onSubmit={handleSubmit} className='loginsignup-fields'>
+          {isSignUp && <input 
+            type="text" 
+            placeholder='Your Name' 
+            value={name} 
+            onChange={(e) => setName(e.target.value)} 
+          />}
+          <input 
+            type="email" 
+            placeholder='Email Address' 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
+          <input 
+            type='password' 
+            placeholder='Password' 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+          />
+          <div className='loginsignup-agree'>
+            <input type='checkbox' onChange={handleCheckboxChange} />
+            <p>By continuing, I agree to terms of use & privacy policy.</p>
+          </div>
+          <button type='submit' disabled={!isChecked}>Continue</button>
+        </form>
+        {isSignUp ? (
+          <p className='loginsignup-login'>
+            Already have an account? <span style={{ cursor: "pointer" }} onClick={() => SetIsSignUp(false)}>Login here</span>
+          </p>
+        ) : (
+          <p className='loginsignup-login'>
+            Don't have an account? <span style={{ cursor: "pointer" }} onClick={() => SetIsSignUp(true)}>Signup here</span>
+          </p>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default AddProduct
+export default LoginSignup;
