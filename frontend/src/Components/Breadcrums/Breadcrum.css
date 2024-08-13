@@ -13,12 +13,10 @@
     margin: 0 5px; /* Adjust spacing between icons */
   }
   
-  .breadcrum img:last-child {
-    display: none; /* Hide the last arrow icon */
-  }
+  
   
   .breadcrum img:first-child {
-    transform: rotate(180deg); /* Rotate the first arrow icon */
+    transform: rotate(0deg); /* Rotate the first arrow icon */
   }
   
   .breadcrum img:first-child, .breadcrum img:not(:first-child) {

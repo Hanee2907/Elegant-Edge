@@ -13,7 +13,7 @@ h1 {
 
 .product-list-format {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 10px;
   font-weight: bold;
   background-color: #dfd5d551;
@@ -29,7 +29,7 @@ h1 {
 
 .listing-allProducts {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Each product detail in its respective column */
+  grid-template-columns: repeat(7, 1fr); /* Each product detail in its respective column */
   gap: 10px;
   text-align: center; /* Centering content */
 }

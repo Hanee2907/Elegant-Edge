@@ -62,6 +62,7 @@
     border-radius: 10px;
 }
 
+/* Tablet view adjustments */
 @media (min-width: 768px) {
     .advertise {
         flex-direction: row;
@@ -74,5 +75,12 @@
 
     .advertise-left p {
         font-size: 1.25rem;
+    }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 767px) {
+    .advertise-right {
+        display: none;/* Force hide the entire right section on mobile view */
     }
 }

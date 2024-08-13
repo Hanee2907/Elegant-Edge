@@ -1,3 +1,5 @@
+// App.js
+
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
@@ -7,14 +9,15 @@ import Cart from './Pages/Cart';
 import Shop from './Pages/Shop';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
 import ShopCategory from './Pages/ShopCategory';
+import LoginSignup from './Pages/LoginSignup';
+import Checkout from './Pages/Checkout.jsx';
+import ThankYou from './Pages/ThankYou';
+import LatestCollections from './Components/LatestCollections/LatestCollections';
 
-
-import LoginSignup from './Pages/LoginSignup'; // Ensure this is not duplicated
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  // Function to add item to cart
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
   };
@@ -31,7 +34,10 @@ function App() {
         <Route path='/product/:productId' element={<Product addToCart={addToCart} />} />
         <Route path="/category/:category/product/:productId" element={<ProductDetails />} />
         <Route path='/cart' element={<Cart cartItems={cartItems} />} />
+        <Route path='/checkout' element={<Checkout />} /> {/* Add the Checkout route */}
         <Route path='/login' element={<LoginSignup />} /> {/* Route for Signup */}
+        <Route path='/thank-you' element={<ThankYou />} />
+        <Route path="/latest-collections" element={<LatestCollections />} />
       </Routes>
       <Footer />
     </div>
